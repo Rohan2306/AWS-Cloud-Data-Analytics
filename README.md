@@ -426,6 +426,7 @@ Analyze student engagement and interaction patterns within the university’s di
 
 ## Visualizations:
 Draw.io diagram
+![image](https://github.com/user-attachments/assets/109c2675-441c-48c2-bf8e-fd79682d5d67)
 
 ---
 
@@ -516,7 +517,8 @@ _Update Frequency_: Annually.
 - The department chair review success rate is 95%.
 
 ## Visualizations:
-- Draw.io diagram
+Draw.io diagram
+![image](https://github.com/user-attachments/assets/f402517c-0166-4719-9cf4-9c0536e1bd51)
 
 ---
 
@@ -582,4 +584,5 @@ The student performance dataset consists of 50 rows, featuring:
 
 ## Visualizations:
 Draw.io diagram 
+![image](https://github.com/user-attachments/assets/710d0644-6c66-4f51-81b5-19dd07489392)
 
