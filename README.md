@@ -67,7 +67,8 @@ The dataset contains 646 entries of contract bids made by the contractors or ven
 - The high percentage of missing Bid Amounts negatively affects data quality and weakens potential correlations in analysis.
 
 ## Visualizations:
-- Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+![image](https://github.com/user-attachments/assets/2d8f5152-b5a8-4f2b-96b8-296c5e73a078)
 
 
 # Project 1: Descriptive Data Analysis
@@ -129,7 +130,8 @@ How effective are the bids proposed by vendors for contracts posted by the City 
 - Certain vendors consistently achieve higher success rates, suggesting advantages in proposal quality or pricing.
 
 ## Visualizations:
-- Draw.io diagram for data analytic platform for the City of Vancouver – Contracts
+Draw.io diagram for data analytic platform for the City of Vancouver – Contracts
+![image](https://github.com/user-attachments/assets/13a2f737-bd10-41f5-aff3-844653b9f54c)
 
 
 # Project 1: Diagnostic Analysis
@@ -203,7 +205,8 @@ The diagnostic analysis identified key issues related to missing data, duplicate
 3. **Profiling Results Storage**: S3 Folder: Data profiling results are stored in the cov-trf-roh bucket.
 
 ## Visualizations:
-- Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+![image](https://github.com/user-attachments/assets/0e9e5db9-771d-4563-bc4f-7f86ff758996)
 
 
 # Project 1: Data Wrangling
@@ -254,7 +257,8 @@ The dataset contains details on contracts issued by the City of Vancouver. Follo
 - Visualizations showing key insights and data quality checks.
 
 ## Visualizations:
-- Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+![image](https://github.com/user-attachments/assets/578e6521-ec38-436a-af67-4d7e89e08145)
 
 
 # Project 1: Data Quality Control
@@ -329,7 +333,9 @@ The dataset contains details on contracts issued by the City of Vancouver. Follo
 - Real-time observability and monitoring dashboards.
 
 ## Visualizations:
-- Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+![image](https://github.com/user-attachments/assets/7e0cda36-d56f-4ade-9ae1-de3062608a4e)
+
 
 # Project 2: Exploratory Data Analysis
 
