@@ -330,3 +330,250 @@ The dataset contains details on contracts issued by the City of Vancouver. Follo
 
 ## Visualizations:
 - Draw.io diagram for data analytic platform for the City of Vancouver - Contracts
+
+# Project 2: Exploratory Data Analysis
+
+## Project Description
+This project involves exploratory analysis of the University Canada West program review datasets, which include student performance data and clickstream data showing the number of page visits. The goal is to explore the relationship between students' online study portal interactions (page visits) and their program performance, aiming to uncover meaningful patterns and insights.
+
+## Project Title
+Exploratory Data Analysis of University Canada West Students' Performance Data to Uncover Patterns and Insights
+
+## Objective
+Analyze the relationship between the number of page visits on the online study portal and student performance rates at University Canada West.
+
+## Dataset
+The dataset consists of two main components: **Student Performance List** and **Student ClickStream Data**, each containing 50 rows.
+
+### Student Performance List
+
+#### Features:
+- **Student_ID**: Unique identifier for each student.
+- **First_Name**: Student's first name.
+- **Last_Name**: Student's last name.
+- **Age**: Student's age.
+- **Gender**: Student's gender (Male/Female).
+- **Course_GPA**: GPA of the student in the course.
+- **Attendance_Percentage**: Attendance percentage for the course.
+- **Project_Score**: Score achieved in the course project.
+- **Final_Exam_Score**: Score achieved in the final exam.
+- **Program_Status**: Status of the student in the program (Pass/Fail).
+
+_Update Frequency_: Quarterly.
+
+### Student ClickStream Dataset
+
+#### Features:
+- **Student_ID**: Unique identifier for each student.
+- **Page_Visited**: Name or URL of the page visited by the student.
+- **Timestamp**: Date and time when the action occurred.
+- **Action**: Type of action performed (e.g., Click, Scroll, Download).
+- **Duration**: Time spent on the page (in seconds).
+
+_Update Frequency_: Real-time or session-based aggregation.
+
+## Purpose
+Analyze student engagement and interaction patterns within the university’s digital platforms.
+
+## Methodology
+
+### 1. Data Ingestion:
+- Uploaded raw data to the AWS S3 bucket (`ac-raw-roh`) dedicated to storing raw data.
+- Organized the data into folders by year and quarter.
+- Set the S3 storage class to Standard for frequent access, with lifecycle rules to move data to Glacier Flexible Retrieval after 90 days.
+
+### 2. Data Profiling:
+- Used AWS Glue DataBrew to analyze the dataset and check its quality.
+- No missing or duplicate values were found.
+- Stored profiling results in the S3 bucket (`ac-trf-roh`).
+
+### 3. Data Cleaning:
+- Standardized column names by replacing spaces with underscores.
+- Removed unnecessary columns.
+- Categorically mapped binary columns such as Program Status.
+- Saved cleaned data in CSV format for users and Parquet format for system processing.
+- Stored the cleaned data in the S3 bucket (`ac-trf-roh`).
+
+### 4. Data Pipeline Design:
+- Created a pipeline in AWS Glue for filtering, aggregating, and merging datasets.
+- Extracted data on the Student Performance List and Student ClickStream for analysis.
+- Aggregated the number of page visits and total number of students.
+- Calculated the student performance rate.
+- Stored the results in the S3 bucket (`ac-cur-roh`).
+
+### 5. Data Analysis:
+- The dataset was analyzed to identify the link between the number of page visits and students' performance (i.e., program status).
+
+## Tools & Technologies
+- AWS S3: Data Storage
+- AWS Glue DataBrew: Data Profiling and Data Cleaning
+- AWS Glue Studio: ETL Pipeline
+
+## Deliverables:
+- An AWS Glue Data Pipeline for processing, aggregating, and merging the dataset.
+- A Data Profiling Report from AWS Glue DataBrew, stating no quality issues were found.
+- Cleaned data files stored in S3 buckets in both CSV and Parquet formats.
+
+## Insights & Findings:
+- There is a strong correlation between student performance rate and the number of page visits.
+- Students with more page visits had a better performance rate.
+
+## Visualizations:
+Draw.io diagram
+
+---
+
+# Project 2: Descriptive Data Analysis
+
+## Project Description
+This project develops a data analytics platform for the University Canada West to evaluate program performance using student, faculty, and department chair data. The platform enables data-driven insights through efficient data ingestion, cleaning, transformation, and comprehensive analysis to support evidence-based program reviews and continuous improvement.
+
+## Project Title
+Data Analytics Platform for Program Reviews at University Canada West
+
+## Objective
+Develop a comprehensive data analytics platform to support program review processes, encompassing descriptive analyses. This platform will evaluate program performance based on student, faculty, and department chair data to derive actionable insights.
+
+## Dataset
+The dataset consists of three components: **Student Performance List**, **Faculty Performance List**, and **Department Chair List**, each containing 50 rows.
+
+### Student Performance List
+Features are the same as described in the **Exploratory Data Analysis** section.
+
+_Update Frequency_: Quarterly.
+
+### Faculty Performance List
+
+#### Features:
+- **Faculty_ID**: Unique identifier for each faculty member.
+- **First_Name**: Faculty member's first name.
+- **Last_Name**: Faculty member's last name.
+- **Age**: Faculty member's age.
+- **Gender**: Faculty member's gender (Male/Female).
+- **Courses_Taught**: List of courses taught by the faculty member.
+- **Teaching_Experience_Years**: Number of years of teaching experience.
+- **Student_Evaluation_Score**: Average score given by students in evaluations.
+- **Research_Publications**: Number of research publications by the faculty member.
+- **Performance_Rating**: Overall performance rating of the faculty member.
+
+_Update Frequency_: Quarterly.
+
+### Department Chair List
+
+#### Features:
+- **Department**: Name of the department offering the course.
+- **Course_Code**: Unique identifier for the course.
+- **Instructor**: Name of the instructor teaching the course.
+- **Credits**: Number of credits for the course.
+- **Enrollment**: Number of students enrolled in the course.
+- **Course_Rating**: Average rating of the course.
+- **Pass_Rate**: Percentage of students who passed the course.
+- **Year_Offered**: Year when the course was offered.
+- **Student_Feedback**: Aggregated feedback from students.
+- **Chair_Comments**: Comments and observations by the department chair.
+
+_Update Frequency_: Annually.
+
+## Methodology
+
+### 1. Data Ingestion:
+- Uploaded raw datasets (student, faculty, department chair) to AWS S3 (`cov-raw-roh`) and organized it by year and quarter.
+- Set S3 storage to Standard with lifecycle rules to move data to Glacier after 90 days.
+
+### 2. Data Profiling:
+- Utilized AWS Glue DataBrew to analyze the dataset and evaluate its quality.
+- No duplicate or missing values were identified.
+
+### 3. Data Cleaning:
+- Standardized column names by replacing spaces with underscores.
+- Deleted extra and unnecessary columns.
+- Stored cleaned data in CSV format for users and Parquet format for system processing.
+
+### 4. Data Pipeline Design:
+- Filtered the dataset as per student program status.
+- Aggregated the total number of students, faculty, and department chairs, then calculated the success rate of student performance, faculty performance, and department chair comments.
+- Stored the results in the transform S3 (`ac-trf-roh`) bucket in CSV and Parquet formats.
+
+## Tools & Technologies:
+- AWS S3: Data Storage
+- AWS Glue DataBrew: Data Profiling and Cleaning
+- AWS Glue: Data Transformation and Aggregation
+
+## Deliverables:
+- Raw and cleaned data are stored in CSV and Parquet formats in S3 buckets for optimized management.
+- An AWS Glue pipeline is utilized for data transformation, aggregation, and calculating the success rate of awarded contracts.
+- The data is filtered and aggregated to assess the success rate of student performance, faculty performance, and department chair reviews.
+
+## Insights & Findings:
+- The student performance rate is 90%.
+- The faculty performance rate is 95%.
+- The department chair review success rate is 95%.
+
+## Visualizations:
+- Draw.io diagram
+
+---
+
+# Project 2: Data Quality Control
+
+## Project Description
+Implementing control measures and audits to ensure the student performance dataset meets quality standards and maintains data accuracy and integrity.
+
+## Project Title
+Data Quality Control for Student Performance Dataset for University Canada West
+
+## Objective
+The goal of this project is to ensure the Student Performance List dataset adheres to high standards of quality, security, and visibility. This includes implementing thorough checks for data accuracy, completeness, and integrity, applying robust security measures to safeguard sensitive student information, and setting up real-time monitoring solutions for continuous tracking. These efforts aim to provide a reliable, secure, and transparent dataset to support effective program performance analysis and data-driven decision-making at University Canada West.
+
+## Dataset
+The student performance dataset consists of 50 rows, featuring:
+- **Student_ID**
+- **First_Name**
+- **Last_Name**
+- **Age**
+- **Gender**
+- **Course_GPA**
+- **Attendance_Percentage**
+- **Project_Score**
+- **Final_Exam_Score**
+- **Program_Status**
+
+## Tools and Technologies:
+- **Amazon S3**: For centralized storage of raw, transformed, and curated datasets.
+- **AWS Glue**: For data pipeline creation, data cataloging, and data quality checks.
+- **AWS Glue DataBrew**: For profiling data quality, applying rules, and routing conditional outputs.
+- **AWS KMS**: For encryption and secure data management.
+- **Amazon CloudWatch**: For real-time monitoring, dashboards, and alerts.
+
+## Methodology
+
+### Data Enrichment:
+- **AWS Glue**: Developed a data pipeline named “ac-pr-QPC-roh” to process clean data from the transformed S3 bucket. Enhanced the dataset by integrating the Clickstream Dataset, adding the number of page visits feature.
+
+### Data Governance:
+- **Completeness and Uniqueness Rules**: Applied data quality rules in AWS Glue DataBrew:
+  - **Completeness Rule**: Ensured the Course_GPA field was 95% complete.
+  - **Uniqueness Rule**: Ensured the Student_ID field was 99% unique.
+
+### Conditional Routing:
+- Divided the results into "Pass" and "Fail" datasets using a conditional router node.
+- Stored the results in dedicated S3 folders:
+  - **Passed Results**: s3://ac-trf-roh/Contracts/data-quality/Pass/
+  - **Failed Results**: s3://ac-trf-roh/Contracts/data-quality/Fail/
+
+### Data Security:
+- **AWS KMS (Key Management Service)**: Encrypted S3 buckets using customer-managed encryption keys.
+- **Cross-Region Replication**: Implemented to enhance data availability and disaster recovery.
+
+### Data Observability:
+- **Amazon CloudWatch**: Created dashboards to track key metrics such as bucket sizes, object counts, billing gauges, and Glue job logs.
+
+## Deliverables:
+- **Cleaned and Enriched Dataset**: A standardized dataset stored in Amazon S3 in both CSV and Parquet formats.
+- **Data Quality Reports**: Reports outlining data that passed or failed completeness and uniqueness checks.
+- **Secure Data Storage**: Encrypted S3 buckets with version control and cross-region replication.
+- **CloudWatch Dashboards**: Real-time dashboards to monitor data quality, storage usage, and pipeline performance.
+
+## Visualizations:
+Draw.io diagram 
+
