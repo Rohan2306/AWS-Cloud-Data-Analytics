@@ -484,7 +484,7 @@ _Update Frequency_: Annually.
 ## Methodology
 
 ### 1. Data Ingestion:
-- Uploaded raw datasets (student, faculty, department chair) to AWS S3 (`cov-raw-roh`) and organized it by year and quarter.
+- Uploaded raw datasets (student, faculty, department chair) to AWS S3 (`ac-raw-roh`) and organized it by year and quarter.
 - Set S3 storage to Standard with lifecycle rules to move data to Glacier after 90 days.
 
 ### 2. Data Profiling:
